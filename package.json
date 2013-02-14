@@ -1,0 +1,14 @@
+{
+	"name": "dom.css",
+	"description": "Cross-browser style manipulation",
+	"version": "0.0.1",
+	"author": "popeindustries <alex@pope-industries.com>",
+	"dependencies": {
+		"util.object": "git://github.com/popeindustries/util.object.git#0.0.1"
+	},
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/popeindustries/dom.css.git"
+	}
+}
