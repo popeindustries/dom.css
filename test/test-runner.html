@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>dom.css - tests</title>
+	<link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+</head>
+<body>
+	<div id="mocha"></div>
+	<script src="../node_modules/mocha/mocha.js"></script>
+	<script src="../node_modules/expect.js/expect.js"></script>
+	<script>
+		mocha.ui('bdd');
+		mocha.reporter('html');
+	</script>
+	<script src="../node_modules/browser-require/require.js"></script>
+	<script src="dom.css.js"></script>
+	<script src="css-test.js"></script>
+	<script>
+		if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
+		else { mocha.run(); }
+	</script>
+</body>
+</html>

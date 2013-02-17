@@ -4,11 +4,43 @@
 	"version": "0.0.1",
 	"author": "popeindustries <alex@pope-industries.com>",
 	"dependencies": {
-		"util.object": "git://github.com/popeindustries/util.object.git#0.0.1"
+		"util.object": "git://github.com/popeindustries/util.object.git"
+	},
+	"devDependencies": {
+		"mocha": "*",
+		"expect.js": "*",
+		"buddy": "*",
+		"browser-require": "git://github.com/popeindustries/browser-require.git"
 	},
 	"main": "index.js",
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/popeindustries/dom.css.git"
+	},
+	"testling": {
+		"harness": "mocha-bdd",
+		"files": "test/css-test.js",
+		"browsers": {
+			"ie": [7,8,9,10],
+			"firefox": [13,17],
+			"chrome": [20,23],
+			"safari": [5.1],
+			"iphone": [6.0],
+			"ipad": [6.0]
+		}
+	},
+	"buddy": {
+		"build": {
+			"js": {
+				"sources": ["node_modules/util.object"],
+				"targets": [{
+					"input": "index.js",
+					"output": "test/dom.css.js"
+				}]
+			}
+		}
+	},
+	"scripts": {
+		"test": "./node_modules/.bin/buddy build && open test/test-runner.html"
 	}
 }
