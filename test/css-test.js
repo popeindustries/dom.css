@@ -17,7 +17,7 @@ describe('dom.css', function() {
         var prop, props;
         prop = css.getPrefixed('transition-duration');
         if (prop) {
-          props = ['-webkit-transition-duration', '-moz-transition-duration', '-ms-transition-duration', '-o-transition-duration'];
+          props = ['-webkit-transition-duration', '-moz-transition-duration', '-ms-transition-duration', '-o-transition-duration', 'transition-duration'];
           expect(props).to.contain(prop);
         } else {
           expect(prop).to.be(false);
