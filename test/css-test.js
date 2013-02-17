@@ -14,13 +14,12 @@ describe('dom.css', function() {
   describe('helper functions', function() {
     describe('getPrefixed()', function() {
       it('should return a prefixed property name when passed the non-prefixed version or false if not supported', function() {
-        var prop, props;
-        prop = css.getPrefixed('transition-duration');
+        var prop = css.getPrefixed('transition-duration')
+          , props = ['-webkit-transition-duration', '-moz-transition-duration', '-ms-transition-duration', '-o-transition-duration', 'transition-duration'];
         if (prop) {
-          props = ['-webkit-transition-duration', '-moz-transition-duration', '-ms-transition-duration', '-o-transition-duration', 'transition-duration'];
           expect(props).to.contain(prop);
         } else {
-          expect(prop).to.be(false);
+          expect(prop).to.not.be.ok();
         }
       });
     });
