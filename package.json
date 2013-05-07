@@ -1,16 +1,16 @@
 {
 	"name": "dom.css",
 	"description": "Cross-browser style manipulation",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"author": "popeindustries <alex@pope-industries.com>",
 	"dependencies": {
-		"util.object": "git://github.com/popeindustries/util.object.git"
+		"util.identify": "git://github.com/popeindustries/util.identify.git"
 	},
 	"devDependencies": {
 		"mocha": "*",
 		"expect.js": "*",
 		"buddy": "*",
-		"browser-require": "git://github.com/popeindustries/browser-require.git"
+		"simple-browser-require": "*"
 	},
 	"main": "index.js",
 	"repository": {

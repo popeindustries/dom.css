@@ -1,4 +1,4 @@
-var objectUtils = require('util.object')
+var id = require('util.identify')
 	, win = window
 	, doc = win.document
 	, RE_UNITS = /(px|%|em|ms|s)$/
@@ -212,7 +212,7 @@ function parseNumber(value, property) {
 		}
 	} else {
 		num = parseFloat(value);
-		if (objectUtils.isNaN(num)) {
+		if (id.isNaN(num)) {
 			return [value, ''];
 		} else {
 			unitTest = RE_UNITS.exec(value);
@@ -271,7 +271,7 @@ function setStyle(element, property, value) {
 	// Expand shorthands
 	property = expandShorthand(property, value);
 	// Handle property hash
-	if (objectUtils.isObject(property)) {
+	if (id.isObject(property)) {
 		for (var prop in property) {
 			setStyle(element, prop, property[prop]);
 		}
@@ -305,7 +305,7 @@ function clearStyle(element, property) {
 		, match, re, style;
 	property = shorthand[property] || property;
 	// Loop through collection
-	if (objectUtils.isArray(property)) {
+	if (id.isArray(property)) {
 		for (var i = 0, n = property.length; i < n; i++) {
 			prop = property[i];
 			clearStyle(element, prop);

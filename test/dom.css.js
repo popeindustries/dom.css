@@ -1,5 +1,4 @@
-/*BUILT Sun Feb 17 2013 20:19:20 GMT+0100 (CET)*/
-require.register('util.object', function(module, exports, require) {
+require.register('util.identify', function(module, exports, require) {
   /**
    * Test if 'obj' is an Array
    * -- from underscore.js --
@@ -83,39 +82,9 @@ require.register('util.object', function(module, exports, require) {
   	return obj === true || obj === false || Object.prototype.toString.call(obj) === '[object Boolean]';
   };
   
-  /**
-   * Extend an 'obj' with additional properties
-   * @param {Object} obj
-   * @param {Object} ...
-   * @returns {Object}
-   */
-  exports.extend = function(obj) {
-  	var argObjs = (2 <= arguments.length) ? Array.prototype.slice.call(arguments, 1) : []
-  		, argObj;
-  	for (var i = 0, n = argObjs.length; i < n; i++) {
-  		argObj = argObjs[i];
-  		for (var prop in argObj) {
-  			obj[prop] = argObj[prop];
-  		}
-  	}
-  	return obj;
-  };
-  
-  /**
-   * Convert a 'key' 'value' pair into an object
-   * @param {String} key
-   * @param {*} value
-   * @returns {Object}
-   */
-  exports.objectify = function(key, value) {
-  	var o = {};
-  	o[key] = value;
-  	return o;
-  };
-  
 });
 require.register('dom.css', function(module, exports, require) {
-  var objectUtils = require('util.object')
+  var id = require('util.identify')
   	, win = window
   	, doc = win.document
   	, RE_UNITS = /(px|%|em|ms|s)$/
@@ -329,7 +298,7 @@ require.register('dom.css', function(module, exports, require) {
   		}
   	} else {
   		num = parseFloat(value);
-  		if (objectUtils.isNaN(num)) {
+  		if (id.isNaN(num)) {
   			return [value, ''];
   		} else {
   			unitTest = RE_UNITS.exec(value);
@@ -388,7 +357,7 @@ require.register('dom.css', function(module, exports, require) {
   	// Expand shorthands
   	property = expandShorthand(property, value);
   	// Handle property hash
-  	if (objectUtils.isObject(property)) {
+  	if (id.isObject(property)) {
   		for (var prop in property) {
   			setStyle(element, prop, property[prop]);
   		}
@@ -422,7 +391,7 @@ require.register('dom.css', function(module, exports, require) {
   		, match, re, style;
   	property = shorthand[property] || property;
   	// Loop through collection
-  	if (objectUtils.isArray(property)) {
+  	if (id.isArray(property)) {
   		for (var i = 0, n = property.length; i < n; i++) {
   			prop = property[i];
   			clearStyle(element, prop);
