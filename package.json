@@ -4,7 +4,7 @@
 	"version": "0.1.0",
 	"author": "popeindustries <alex@pope-industries.com>",
 	"dependencies": {
-		"util.identify": "git://github.com/popeindustries/util.identify.git"
+		"util.identify": "git://github.com/thomaslein/util.identify.git"
 	},
 	"devDependencies": {
 		"mocha": "*",
@@ -15,7 +15,7 @@
 	"main": "index.js",
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/popeindustries/dom.css.git"
+		"url": "git://github.com/thomaslein/dom.css.git"
 	},
 	"testling": {
 		"harness": "mocha-bdd",
