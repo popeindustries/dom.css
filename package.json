@@ -1,8 +1,8 @@
 {
-	"name": "dom.css",
+	"name": "dom.style",
 	"description": "Cross-browser style manipulation",
-	"version": "0.1.0",
-	"author": "popeindustries <alex@pope-industries.com>",
+	"version": "0.0.2",
+	"author": "Thomas Lein <thomaslein@gmail.com>",
 	"dependencies": {
 		"lodash.isobject": "~2.4.0",
 		"lodash.isarray": "~2.4.0",
@@ -19,7 +19,7 @@
 	"main": "index.js",
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/thomaslein/dom.css.git"
+		"url": "git://github.com/thomaslein/dom.style.git"
 	},
 	"testling": {
 		"harness": "mocha-bdd",
@@ -39,7 +39,7 @@
 				"sources": ["node_modules/util.object"],
 				"targets": [{
 					"input": "index.js",
-					"output": "test/dom.css.js"
+					"output": "test/dom.style.js"
 				}]
 			}
 		}
