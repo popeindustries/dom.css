@@ -1,11 +1,19 @@
 // TODO: handle setting special shortcut transform properties with arrays (translate, scale)?
 
 var identify = require('util.identify')
+<<<<<<< HEAD
 	,	isObject = identify.isObject
 	, isNan = identify.isNan
 	, isArray = identify.isArray
 	, isString = identify.isString
 	, map = [].map
+=======
+	, isObject = identify.isObject
+	, isNan = identify.isNan
+	, isArray = identify.isArray
+	, isString = identify.isString
+	, map = require('lodash.map')
+>>>>>>> FETCH_HEAD
 	, win = window
 	, doc = window.document
 	, el = doc.createElement('div')
