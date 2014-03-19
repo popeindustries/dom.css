@@ -2,7 +2,7 @@
 
 var identify = require('util.identify')
 	,	isObject = identify.isObject
-	, isNan = identify.isNan
+	, isNan = identify.isNaN
 	, isArray = identify.isArray
 	, isString = identify.isString
 	, map = [].map
