@@ -1,5 +1,3 @@
-[![browser support](http://ci.testling.com/popeindustries/dom.css.png)](http://ci.testling.com/popeindustries/dom.css)
-
 Cross-browser css manipulation.
 
 ## Usage
