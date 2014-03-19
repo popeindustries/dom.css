@@ -4,8 +4,7 @@
 	"version": "0.0.2",
 	"author": "Thomas Lein <thomaslein@gmail.com>",
 	"dependencies": {
-		"util.identify": "git://github.com/thomaslein/util.identify.git",
-		"lodash.map": "~2.4.0"
+		"util.identify": "git://github.com/thomaslein/util.identify.git"
 	},
 	"main": "index.js",
 	"repository": {
