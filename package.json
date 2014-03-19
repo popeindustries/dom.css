@@ -10,41 +10,9 @@
 		"lodash.isstring": "~2.4.0",
 		"lodash.map": "~2.4.0"
 	},
-	"devDependencies": {
-		"mocha": "*",
-		"expect.js": "*",
-		"buddy": "*",
-		"simple-browser-require": "*"
-	},
 	"main": "index.js",
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/thomaslein/dom.style.git"
-	},
-	"testling": {
-		"harness": "mocha-bdd",
-		"files": "test/style-test.js",
-		"browsers": {
-			"ie": [7,8,9,10],
-			"firefox": [13,17],
-			"chrome": [20,23],
-			"safari": [5.1],
-			"iphone": [6.0],
-			"ipad": [6.0]
-		}
-	},
-	"buddy": {
-		"build": {
-			"js": {
-				"sources": ["node_modules/util.identify"],
-				"targets": [{
-					"input": "index.js",
-					"output": "test/dom.style.js"
-				}]
-			}
-		}
-	},
-	"scripts": {
-		"test": "./node_modules/.bin/buddy build && open test/test-runner.html"
 	}
 }
