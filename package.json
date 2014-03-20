@@ -4,7 +4,11 @@
   "version": "0.0.2",
   "author": "Thomas Lein <thomaslein@gmail.com>",
   "dependencies": {
-    "util.identify":"git://github.com/thomaslein/util.identify.git"
+    "lodash.isobject": "^2.4.0",
+    "lodash.isarray": "^2.4.0",
+    "lodash.isnan": "^2.4.0",
+    "lodash.isstring": "^2.4.0",
+    "lodash.map": "^2.4.0"
   },
   "devDependencies": {
     "mocha": "*",
