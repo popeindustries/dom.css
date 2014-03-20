@@ -18,7 +18,7 @@
     "term-canvas": "*"
   },
   "main": "index.js",
-  "repository": "https://github.com/yr/util.style.git",
+  "repository": "https://github.com/thomaslein/dom.style.git",
   "scripts": {
     "test": "buddy build && mocha-phantomjs test/test-runner.html",
     "sauce": "node test/sauce.js"
