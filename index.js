@@ -1,6 +1,7 @@
 // TODO: handle setting special shortcut transform properties with arrays (translate, scale)?
 
 var identify = require('util.identify')
+	, isObject = identify.isObject
 	, isNan = identify.isNaN
 	, isArray = identify.isArray
 	, isString = identify.isString
