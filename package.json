@@ -1,5 +1,5 @@
 {
-  "name": "util.style",
+  "name": "dom.style",
   "description": "Cross-browser style manipulation",
   "version": "0.0.2",
   "author": "Thomas Lein <thomaslein@gmail.com>",
