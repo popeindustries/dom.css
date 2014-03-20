@@ -1,11 +1,10 @@
 // TODO: handle setting special shortcut transform properties with arrays (translate, scale)?
 
-var identify = require('util.identify')
-	,	isObject = identify.isObject
-	, isNan = identify.isNaN
-	, isArray = identify.isArray
-	, isString = identify.isString
-	, map = [].map
+var isObject = require('lodash.isobject')
+	, isNan = require('lodash.isnan')
+	, isArray = require('lodash.isarray')
+	, isString = require('lodash.isstring')
+	, map = require('lodash.map')
 	, win = window
 	, doc = window.document
 	, el = doc.createElement('div')
@@ -142,6 +141,7 @@ exports.parseNumber = parseNumber;
 exports.parseTransform = parseTransform;
 exports.getStyle = getStyle;
 exports.getNumericStyle = getNumericStyle;
+exports.getDocumentStyle = getDocumentStyle;
 exports.setStyle = setStyle;
 exports.clearStyle = clearStyle;
 exports.platformStyles = platformStyles;
@@ -305,8 +305,8 @@ function getOpacityValue (value) {
 function parseNumber (value, property) {
 	var channels, num, unit, unitTest;
 
-	if (value == null) {
-		return null;
+	if (value == null || value == 'none') {
+		value = 0;
 	}
 
 	// Handle arrays of values (translate, scale)
@@ -546,6 +546,33 @@ function getStyle (element, property) {
  */
 function getNumericStyle (element, property) {
 	return parseNumber(getStyle(element, property), property);
+}
+
+/**
+ * Retrieve the 'property' for matching 'selector' rule in all document stylesheets
+ * @param {String} selector
+ * @param {String} property
+ * @returns {String}
+ */
+function getDocumentStyle (selector, property) {
+	var styleSheets = document.styleSheets
+		, sheet, rules, rule;
+
+	if (styleSheets) {
+		for (var i = 0, n = styleSheets.length; i < n; i++) {
+			sheet = styleSheets[i];
+			if (rules = sheet.rules || sheet.cssRules) {
+				for (var j = 0, m = rules.length; j < m; j++) {
+					rule = rules[j];
+					if (selector === rule.selectorText) {
+						return rule.style.getPropertyValue(property);
+					}
+				}
+			}
+		}
+	}
+
+	return '';
 }
 
 /**

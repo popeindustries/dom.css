@@ -1,14 +1,41 @@
 {
-	"name": "dom.style",
-	"description": "Cross-browser style manipulation",
-	"version": "0.0.2",
-	"author": "Thomas Lein <thomaslein@gmail.com>",
-	"dependencies": {
-		"util.identify": "git://github.com/thomaslein/util.identify.git"
-	},
-	"main": "index.js",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/thomaslein/dom.style.git"
-	}
+  "name": "util.style",
+  "description": "Cross-browser style manipulation",
+  "version": "0.0.2",
+  "author": "Thomas Lein <thomaslein@gmail.com>",
+  "dependencies": {
+    "lodash.isobject": "^2.4.0",
+    "lodash.isarray": "^2.4.0",
+    "lodash.isnan": "^2.4.0",
+    "lodash.isstring": "^2.4.0",
+    "lodash.map": "^2.4.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "expect.js": "*",
+    "buddy": "*",
+    "mocha-sauce": "git://github.com/pbakaus/mocha-sauce.git",
+    "term-canvas": "*"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/yr/util.style.git",
+  "scripts": {
+    "test": "buddy build && mocha-phantomjs test/test-runner.html",
+    "sauce": "node test/sauce.js"
+  },
+  "buddy": {
+    "build": {
+      "js": {
+        "targets": [{
+          "input": "index.js",
+          "output": "test/style.js",
+          "boilerplate": true
+        }]
+      }
+    },
+    "server": {
+      "directory": ".",
+      "port": 8000
+    }
+  }
 }
