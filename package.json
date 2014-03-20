@@ -4,11 +4,7 @@
   "version": "0.0.2",
   "author": "Thomas Lein <thomaslein@gmail.com>",
   "dependencies": {
-    "lodash.isobject": "^2.4.0",
-    "lodash.isarray": "^2.4.0",
-    "lodash.isnan": "^2.4.0",
-    "lodash.isstring": "^2.4.0",
-    "lodash.map": "^2.4.0"
+    "util.identify":"git://github.com/thomaslein/util.identify.git"
   },
   "devDependencies": {
     "mocha": "*",
@@ -18,7 +14,7 @@
     "term-canvas": "*"
   },
   "main": "index.js",
-  "repository": "https://github.com/thomaslein/dom.style.git",
+  "repository": "git://github.com/thomaslein/dom.style.git",
   "scripts": {
     "test": "buddy build && mocha-phantomjs test/test-runner.html",
     "sauce": "node test/sauce.js"
