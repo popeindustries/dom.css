@@ -7,7 +7,7 @@ try {
 	require('./sauce.js');
 // .. or browser
 } catch (err) {
-	style = require('./style');
+	style = require('./dom.style');
 	expect = window.expect;
 }
 
