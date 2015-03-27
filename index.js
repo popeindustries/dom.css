@@ -1,10 +1,6 @@
 // TODO: handle setting special shortcut transform properties with arrays (translate, scale)?
 
-var isObject = require('lodash.isobject')
-	, isNan = require('lodash.isnan')
-	, isArray = require('lodash.isarray')
-	, isString = require('lodash.isstring')
-	, map = require('lodash.map')
+var identify = require('util.identify')
 	, win = window
 	, doc = window.document
 	, el = doc.createElement('div')
@@ -310,8 +306,8 @@ function parseNumber (value, property) {
 	}
 
 	// Handle arrays of values (translate, scale)
-	if (isArray(value)) {
-		return map(value, function (val) {
+	if (identify.isArray(value)) {
+		return value.map(function (val) {
 			return parseNumber(val, property);
 		});
 	}
@@ -333,7 +329,7 @@ function parseNumber (value, property) {
 	// Handle numbers
 	} else {
 		num = parseFloat(value);
-		if (isNan(num)) {
+		if (identify.isNaN(num)) {
 			return [value, ''];
 		} else {
 			unitTest = RE_UNITS.exec(value);
@@ -477,10 +473,10 @@ function generateTransform (element, property, value) {
 					+ ')';
 			case 'translate':
 			case 'translate3d':
-				if (isArray(value)) {
+				if (identify.isArray(value)) {
 					// Add default unit
-					value = map(value, function(item) {
-						return !isString(item) ? item + 'px': item;
+					value = value.map(function(item) {
+						return !identify.isString(item) ? item + 'px': item;
 					})
 					.join(', ');
 				}
@@ -492,7 +488,7 @@ function generateTransform (element, property, value) {
 					+ ')';
 			case 'scale':
 			case 'scale3d':
-				if (isArray(value)) {
+				if (identify.isArray(value)) {
 					value = value.join(', ');
 				}
 				return ''
@@ -587,7 +583,7 @@ function setStyle (element, property, value) {
 	// Expand shorthands
 	prop = expandShorthand(property, value);
 	// Handle property hash returned from expandShorthand
-	if (isObject(prop)) {
+	if (identify.isObject(prop)) {
 		for (var p in prop) {
 			setStyle(element, p, prop[p]);
 		}
@@ -687,7 +683,7 @@ function camelCase (str) {
  * @returns {Array}
  */
 function matrixStringToArray (matrix) {
-	if (isArray(matrix)) {
+	if (identify.isArray(matrix)) {
 		return matrix;
 	} else if (re = matrix.match(RE_MATRIX)) {
 		// Convert string to array
