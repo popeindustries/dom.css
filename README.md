@@ -2,7 +2,7 @@ Cross-browser css manipulation.
 
 ## Usage
 ```javascript
-var css = require('dom.css');
+var css = require('dom.style');
 
 var el = document.getElementById('myEl');
 var bgColor = css.getStyle(el, 'background-color'); // => '#ffffff'
