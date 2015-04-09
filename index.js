@@ -78,8 +78,6 @@ var identify = require('util.identify')
 			'matrix3d': true
 		}
 
-	, transformBulk = ''
-
 	, platformStyles = {}
 	, platformPrefix = ''
 
