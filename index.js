@@ -78,6 +78,8 @@ var identify = require('util.identify')
 			'matrix3d': true
 		}
 
+	, transformBulk = ''
+
 	, platformStyles = {}
 	, platformPrefix = ''
 
@@ -608,12 +610,12 @@ function setStyle (element, property, value) {
 	prop = getPrefixed(prop);
 
 	// Handle special transform properties
-	// TODO: bulk multiple transforms?
 	if (transform[property]) {
-		value = generateTransform(element, property, value);
+		transformBulk += ' ' + generateTransform(element, property, value);
+		element.style[camelCase(prop)] = transformBulk;
+	}else{
+		element.style[camelCase(prop)] = value;
 	}
-
-	element.style[camelCase(prop)] = value;
 }
 
 /**
