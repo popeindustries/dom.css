@@ -611,11 +611,9 @@ function setStyle (element, property, value) {
 
 	// Handle special transform properties
 	if (transform[property]) {
-		transformBulk += ' ' + generateTransform(element, property, value);
-		element.style[camelCase(prop)] = transformBulk;
-	}else{
-		element.style[camelCase(prop)] = value;
+		value = generateTransform(element, property, value);
 	}
+	element.style[camelCase(prop)] = value;
 }
 
 /**

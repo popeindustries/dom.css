@@ -249,6 +249,8 @@ require.register('dom.style', function(module, exports, require) {
   			'matrix3d': true
   		}
   
+  	, transformBulk = ''
+  
   	, platformStyles = {}
   	, platformPrefix = ''
   
@@ -779,11 +781,9 @@ require.register('dom.style', function(module, exports, require) {
   	prop = getPrefixed(prop);
   
   	// Handle special transform properties
-  	// TODO: bulk multiple transforms?
   	if (transform[property]) {
   		value = generateTransform(element, property, value);
   	}
-  
   	element.style[camelCase(prop)] = value;
   }
   
