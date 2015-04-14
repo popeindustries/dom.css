@@ -170,6 +170,7 @@ require.register('util.identify', function(module, exports, require) {
 });
 require.register('dom.style', function(module, exports, require) {
   // TODO: handle setting special shortcut transform properties with arrays (translate, scale)?
+  // TODO: bulk transform properties
   
   var identify = require('util.identify')
   	, win = window
@@ -209,8 +210,8 @@ require.register('dom.style', function(module, exports, require) {
   			'rotateX': 'deg',
   			'rotateY': 'deg',
   			'rotateZ': 'deg',
-  			'skewX': 'px',
-  			'skewY': 'px'
+  			'skewX': 'deg',
+  			'skewY': 'deg'
   		}
   	, colour = {
   			'background-color': true,
@@ -242,14 +243,13 @@ require.register('dom.style', function(module, exports, require) {
   			'scaleY': true,
   			'scale3d': true,
   			'scaleZ': true,
+  			'skew': true,
   			'skewX': true,
   			'skewY': true,
   			'perspective': true,
   			'matrix': true,
   			'matrix3d': true
   		}
-  
-  	, transformBulk = ''
   
   	, platformStyles = {}
   	, platformPrefix = ''
@@ -755,6 +755,7 @@ require.register('dom.style', function(module, exports, require) {
   
   	// Expand shorthands
   	prop = expandShorthand(property, value);
+  	
   	// Handle property hash returned from expandShorthand
   	if (identify.isObject(prop)) {
   		for (var p in prop) {
