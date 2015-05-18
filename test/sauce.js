@@ -5,7 +5,7 @@ var Canvas = require('term-canvas')
 var sauce = new MochaSauce({
 	name: 'Style',
 	username: 'thomasl',
-	accessKey: '',
+	accessKey: process.env.ACCESS_KEY,
 	host: 'localhost',
 	port: 4445,
 	url: 'http://localhost:8000/test/test-runner.html',
@@ -21,21 +21,21 @@ sauce.browser({browserName: 'iphone', platform: 'OSX 10.9', version: '7'});
 sauce.browser({browserName: 'android', platform: 'Linux', version: '4.0'});
 
 
-// sauce.on('init', function(browser) {
-// 	console.log('\tinit\t: %s %s', browser.browserName, browser.platform);
-// });
+sauce.on('init', function(browser) {
+	console.log('\tinit\t: %s %s', browser.browserName, browser.platform);
+});
 
-// sauce.on('start', function(browser) {
-// 	console.log('\tstart\t: %s %s', browser.browserName, browser.platform);
-// });
+sauce.on('start', function(browser) {
+	console.log('\tstart\t: %s %s', browser.browserName, browser.platform);
+});
 
-// sauce.on('end', function(browser, res) {
-// 	console.log('\tend\t: %s %s: %d failures', browser.browserName, browser.platform, res.failures);
-// });
+sauce.on('end', function(browser, res) {
+	console.log('\tend\t: %s %s: %d failures', browser.browserName, browser.platform, res.failures);
+});
 
-// sauce.start(function(err, res) {
-// 	if (err) console.log(err);
-// });
+sauce.start(function(err, res) {
+	if (err) console.log(err);
+});
 
 var canvas = new Canvas(size[0], size[1])
 	, ctx = canvas.getContext('2d');

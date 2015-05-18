@@ -8,9 +8,10 @@
   },
   "devDependencies": {
     "buddy": "^1.3.4",
+    "buddy-server": "^1.0.0",
+    "expect.js": "*",
     "mocha": "*",
     "mocha-phantomjs": "*",
-    "expect.js": "*",
     "mocha-sauce": "git://github.com/pbakaus/mocha-sauce.git",
     "term-canvas": "*"
   },
@@ -23,11 +24,13 @@
   "buddy": {
     "build": {
       "js": {
-        "targets": [{
-          "input": "index.js",
-          "output": "test/style.js",
-          "boilerplate": true
-        }]
+        "targets": [
+          {
+            "input": "index.js",
+            "output": "test/style.js",
+            "boilerplate": true
+          }
+        ]
       }
     },
     "server": {
